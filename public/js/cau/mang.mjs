@@ -231,7 +231,7 @@ export const GOI_MANG = [
         id: 'mk-ngay-sinh', nhom: 'mat-khau', muc: 'kho', khung: 'mat-khau',
         hoi: 'Thanh đo đều báo Mạnh. Mật khẩu nào khó đoán thật?',
         goc: { trang: 'Edumo', mk: 'Ca-phe-sua-da-luc-7h!', goiY: 'Dùng ít nhất 12 ký tự.' },
-        va: { mk: 'BaoKhue14032009!' },
+        va: { mk: 'BaoKhue14032010!' },
         vi: 'Thanh đo chỉ đếm chữ hoa, số, ký hiệu. Nó không biết tên và ngày sinh của bạn đã lộ trên mạng, như tấm ảnh thẻ học sinh ở gói trước.',
       },
       {
