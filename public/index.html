@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="vi" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f5f4fc">
+  <title>Đố Vui Ngày Hội</title>
+  <meta name="description" content="Gian đố vui an toàn mạng của CLB Tin học: hai màn hình gần như giống hệt, chọn bản thật, giữ So để thấy chỗ khác.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="fonts/font.css">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/khung.css">
+  <link rel="stylesheet" href="css/may.css">
+  <link rel="stylesheet" href="css/choi.css">
+  <script>
+    /* Đặt giao diện trước khi vẽ để không chớp màu. */
+    try {
+      var g = localStorage.getItem('dovui_giao_dien');
+      if (g === 'dark' || g === 'light') document.documentElement.dataset.theme = g;
+      if (g === 'dark') document.querySelector('meta[name="theme-color"]').setAttribute('content', '#090d16');
+    } catch (e) {}
+  </script>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="module" src="js/app.mjs"></script>
+</body>
+</html>

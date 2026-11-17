@@ -1,0 +1,17 @@
+{
+  "name": "diem10code-dovui",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Đố Vui Ngày Hội (tên tạm): hai màn hình gần như giống hệt, chọn bản thật, giữ So để thấy chỗ khác. Chuỗi game diem10code, gói chính là an toàn mạng.",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "start": "node server.mjs",
+    "dien-thoai": "node -e \"process.env.HOST='0.0.0.0';import('./server.mjs')\"",
+    "test": "node tools/kiem.mjs"
+  },
+  "keywords": ["diem10code", "an-toan-mang", "tin-hoc-thpt", "game-dien-thoai"],
+  "license": "UNLICENSED"
+}

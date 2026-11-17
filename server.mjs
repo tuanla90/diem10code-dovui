@@ -1,0 +1,62 @@
+// Máy chủ tĩnh gọn cho game. Không có phụ thuộc, không gắn đường dẫn ngoài dự án.
+// Chạy ở máy: chỉ nghe trên máy này. Thử trên điện thoại cùng mạng: npm run dien-thoai
+// Lên Railway: nền tảng cấp PORT, lúc đó phải nghe mọi địa chỉ thì mới nhận được yêu cầu từ ngoài.
+import http from 'node:http';
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const GOC = path.join(path.dirname(fileURLToPath(import.meta.url)), 'public');
+const CONG = Number(process.env.PORT) || 4300;
+const CHU = process.env.HOST || (process.env.PORT ? '0.0.0.0' : '127.0.0.1');
+
+const LOAI = {
+  '.html': 'text/html; charset=utf-8',
+  '.css': 'text/css; charset=utf-8',
+  '.js': 'text/javascript; charset=utf-8',
+  '.mjs': 'text/javascript; charset=utf-8',
+  '.json': 'application/json; charset=utf-8',
+  '.svg': 'image/svg+xml',
+  '.png': 'image/png',
+  '.webp': 'image/webp',
+  '.woff2': 'font/woff2',
+};
+
+function traVe(res, ma, thongDiep) {
+  res.writeHead(ma, { 'Content-Type': 'text/plain; charset=utf-8' });
+  res.end(thongDiep);
+}
+
+const server = http.createServer((req, res) => {
+  let tuongDoi;
+  try {
+    tuongDoi = decodeURIComponent(new URL(req.url, 'http://x').pathname);
+  } catch {
+    traVe(res, 400, 'Đường dẫn không hợp lệ');
+    return;
+  }
+  if (tuongDoi.includes('\0')) {
+    traVe(res, 400, 'Đường dẫn không hợp lệ');
+    return;
+  }
+  const tep = path.join(GOC, tuongDoi === '/' ? 'index.html' : tuongDoi);
+  if (tep !== GOC && !tep.startsWith(GOC + path.sep)) {
+    traVe(res, 403, 'Không được phép');
+    return;
+  }
+  fs.readFile(tep, (loi, du) => {
+    if (loi) {
+      traVe(res, 404, 'Không tìm thấy');
+      return;
+    }
+    res.writeHead(200, {
+      'Content-Type': LOAI[path.extname(tep).toLowerCase()] || 'application/octet-stream',
+      'Cache-Control': 'no-cache',
+    });
+    res.end(du);
+  });
+});
+
+server.listen(CONG, CHU, () => {
+  console.log(`Đố Vui Ngày Hội: http://${CHU === '0.0.0.0' ? 'localhost' : CHU}:${CONG}/`);
+});
