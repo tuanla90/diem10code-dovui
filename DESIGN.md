@@ -1,6 +1,6 @@
 # Thiết kế Đố Vui Ngày Hội (tên tạm, chưa chốt)
 
-Game đố vui nhìn nhanh của chuỗi diem10code. Cùng thế giới với Mạch Đèn, Sổ Ngày Hội, Gương Mặt Ngày Hội, Trạm Web Ngày Hội, Mật Lệnh Robot: THPT Hoa Phượng, CLB Tin học, Ngày hội Tin học 26-27/3/2027. Game này chính là gian **đố vui an toàn mạng** trong năm phần thi của Ngày hội.
+Game đố vui nhìn nhanh của chuỗi diem10code. Cùng thế giới với Mạch Đèn, Sổ Ngày Hội, Gương Mặt Ngày Hội, Trạm Web Ngày Hội, Mật Lệnh Robot: THPT Hoa Phượng, CLB Tin học, Ngày hội Tin học sáng 27/3/2027. Game này chính là gian **đố vui an toàn mạng** trong năm phần thi của Ngày hội.
 
 Tên trường, nhân vật, tên miền và logo chốt ở [../VU-TRU-DIEM10CODE.html](../VU-TRU-DIEM10CODE.html). Sửa ở đây mà vênh với bản đó thì theo bản đó.
 
