@@ -183,4 +183,17 @@
   --k-ngoc-nhat: #cffafe;
   --k-la-nhat: #d1fae5;
   --k-neon: #39ff14;
+  /* Logo CLB Tin học và năm biểu tượng phần thi: đúng mã màu của bản chuẩn (diem10code-dohoa/public/js/hinh.mjs). */
+  --k-logo-1: #6d5df6;
+  --k-logo-12: #8460f3;
+  --k-logo-2: #a35cf0;
+  --k-logo-23: #c766d8;
+  --k-logo-3: #ec6fbf;
+  --k-logo-vong: #e9e4fb;
+  --k-muc: #1e1b4b;
+  --k-hd1: #4f46e5;
+  --k-hd2: #ec6fbf;
+  --k-hd3: #0d9488;
+  --k-hd4: #f97316;
+  --k-hd5: #a35cf0;
 }

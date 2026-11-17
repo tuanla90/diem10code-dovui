@@ -183,6 +183,22 @@
 .dh-nhan-icon { fill: var(--k-phu); font-size: 10.5px; font-weight: 600; }
 .dh-so { fill: var(--k-chu); font-size: 10px; font-weight: 700; }
 .dh-truc { fill: none; stroke: var(--k-vien); stroke-width: 1.5; }
+/* Logo CLB Tin học (5 mảnh) và năm biểu tượng phần thi */
+.dh-s-logo1 { stop-color: var(--k-logo-1); }
+.dh-s-logo2 { stop-color: var(--k-logo-2); }
+.dh-s-logo3 { stop-color: var(--k-logo-3); }
+.dh-logo-vong { fill: none; stroke: var(--k-nen); stroke-width: 3; opacity: .75; }
+.dh-muc { fill: var(--k-muc); }
+.dh-logo-chu { fill: var(--k-nen); font-size: 15px; font-weight: 800; }
+.dh-logo-12 { fill: var(--k-logo-12); }
+.dh-logo-2 { fill: var(--k-logo-2); }
+.dh-logo-23 { fill: var(--k-logo-23); }
+.dh-logo-3 { fill: var(--k-logo-3); }
+.dh-logo-vong-o { fill: var(--k-logo-vong); }
+.dh-hd1 { fill: var(--k-hd1); } .dh-hd2 { fill: var(--k-hd2); } .dh-hd3 { fill: var(--k-hd3); } .dh-hd4 { fill: var(--k-hd4); } .dh-hd5 { fill: var(--k-hd5); }
+.dh-net-hd2, .dh-net-trang { fill: none; stroke-linecap: round; stroke-linejoin: round; }
+.dh-net-hd3 { fill: none; }
+.dh-net-hd2 { stroke: var(--k-hd2); } .dh-net-hd3 { stroke: var(--k-hd3); } .dh-net-trang { stroke: var(--k-nen); }
 
 /* Khối giao diện của mùa HTML và CSS */
 .may--css .web-thanh { gap: 5px; }

@@ -17,8 +17,8 @@ const LOAI = {
   anh: (d) => `<div class="w-the w-the--anh">${vung('vua', '<img src="mat/sola/happy.png" alt="Sola cười">', 'w-anh', `--vua:${d.vua}`)}<b class="w-tieu">Gương mặt Ngày hội: Sola</b></div>`,
   'bo-goc': (d) => `<div class="w-ngoai">${vung('goTrong', '<span>Ảnh đội thi</span>', 'w-trong', `border-radius:${d.goTrong}`)}<b class="w-tieu">Đội 11A2</b></div>`,
   form: (d) => `<b class="w-tieu">Đăng ký đội thi</b>${vung('nhan', d.nhan === 'co'
-    ? '<label class="w-nhan">Họ tên trưởng nhóm</label><div class="w-o">Đàm Gia Bảo</div><label class="w-nhan">Lớp</label><div class="w-o">11A</div>'
-    : '<div class="w-o">Đàm Gia Bảo</div><div class="w-o">11A</div>', 'w-form')}`,
+    ? '<label class="w-nhan">Họ tên trưởng nhóm</label><div class="w-o">Hà Vy</div><label class="w-nhan">Lớp</label><div class="w-o">11A2</div>'
+    : '<div class="w-o">Hà Vy</div><div class="w-o">11A2</div>', 'w-form')}`,
   'cap-tieu': (d) => `${vung('coTieu', 'Trao giải Ngày hội', 'w-h2', `font-size:${d.coTieu}`)}
     <p class="w-doan">Lễ trao giải bắt đầu lúc 11:00 ở sân trường. Các đội đạt giải lên sân khấu theo thứ tự đọc tên.</p>`,
   'tran-chu': (d) => `<div class="w-the"><b class="w-tieu">Gửi bài dự thi</b>${vung('ngat', 'Đăng ảnh kèm thẻ #NgayHoiTinHocCLBTinHocTruongTHPTHoaPhuong2027 để được tính điểm.', 'w-doan', `overflow-wrap:${d.ngat}`)}</div>`,

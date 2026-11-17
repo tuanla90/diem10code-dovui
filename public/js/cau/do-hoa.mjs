@@ -18,7 +18,7 @@ export const GOI_DO_HOA = [
         id: 'dh-ti-le', nhom: 'ti-le', muc: 'de', khung: 'logo',
         hoi: 'Bản nào giữ đúng tỉ lệ của logo?',
         goc: { ...LOGO }, va: { tiLe: 0.74 },
-        vi: 'Kéo một chiều làm vòng tròn thành quả trứng. Giữ Shift hoặc khóa tỉ lệ rồi kéo góc thì không méo.',
+        vi: 'Kéo một chiều làm logo tròn thành quả trứng, chữ TIN HỌC bẹp xuống. Giữ Shift hoặc khóa tỉ lệ rồi kéo góc thì không méo.',
       },
       {
         id: 'dh-can-giua', nhom: 'can-hang', muc: 'vua', khung: 'logo',
@@ -96,7 +96,7 @@ export const GOI_DO_HOA = [
         id: 'dh-vo-net', nhom: 'vector', muc: 'kho', khung: 'logo',
         hoi: 'In lên băng rôn ba mét, bản nào dùng đúng tệp?',
         goc: { ...LOGO, co: 150 }, va: { kieu: 'diem' },
-        vi: 'Vector lưu bằng công thức nên phóng cỡ nào cũng nét. Ảnh điểm phóng quá cỡ gốc sẽ lộ từng ô vuông.',
+        vi: 'Vector lưu bằng công thức nên phóng cỡ nào cũng nét. Ảnh điểm phóng quá cỡ gốc sẽ lộ từng ô vuông, chữ TIN HỌC vỡ thành vạch: đúng chuyện băng rôn năm ngoái.',
       },
       {
         id: 'dh-du-to', nhom: 'ti-le', muc: 'vua', khung: 'logo',
@@ -227,8 +227,8 @@ export const GOI_DO_HOA = [
       {
         id: 'dh-tron', nhom: 'bieu-do', muc: 'vua', khung: 'bieu-do-tron',
         hoi: 'Biểu đồ tròn nào phân biệt rõ từng phần?',
-        goc: { mau: 'tim,hong,vang,ngoc' }, va: { mau: 'tim,tim-lech,tim-dam,poster' },
-        vi: 'Bốn sắc tím gần nhau thì phần nào thuộc môn nào phải dò chú thích từng ô. Các phần cạnh nhau cần màu khác hẳn nhau.',
+        goc: { mau: 'hd1,hd2,hd3,hd4,hd5' }, va: { mau: 'tim,tim-lech,tim-dam,poster,tim-nhat' },
+        vi: 'Năm sắc tím gần nhau thì phần nào thuộc phần thi nào phải dò chú thích từng ô. Các phần cạnh nhau cần màu khác hẳn nhau, như năm màu của năm biểu tượng phần thi.',
       },
       {
         id: 'dh-mau-chuan', nhom: 'mau-thuong-hieu', muc: 'kho', khung: 'nhan-dien',

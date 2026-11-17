@@ -19,6 +19,7 @@ ul, ol { padding: 0; list-style: none; }
 /* Đầu trang */
 .dau { display: flex; align-items: center; gap: 10px; min-height: 48px; }
 .dau-ten { flex: 1; min-width: 0; }
+.logo-clb { width: 40px; height: 40px; flex: none; display: block; }
 .dau-ten b { display: block; font-size: 16px; font-weight: 750; line-height: 1.2; }
 .dau-ten small { display: block; font-size: 12.5px; color: var(--fg-phu); line-height: 1.3; }
 .nut-icon { width: 44px; height: 44px; flex: none; display: grid; place-items: center; border-radius: var(--r-vua); background: var(--the); border: 1px solid var(--vien); transition: transform .12s ease-out; }

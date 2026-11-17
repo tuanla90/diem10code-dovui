@@ -3,32 +3,49 @@
 
 const vung = (k, html) => `<g data-truong="${k}">${html}</g>`;
 const so = (s) => String(s).split(',').map(Number);
-const SAO = '0,-34 9,-11 33,-10 14,5 21,29 0,15 -21,29 -14,5 -33,-10 -9,-11';
 const svg = (html, nhan) => `<svg viewBox="0 0 300 180" class="dh" role="img" aria-label="${nhan}">${html}</svg>`;
 
-// Logo chuẩn: vòng tròn đường kính 100 có ngôi sao, tâm ở gốc tọa độ.
-const logoVector = () => `<circle r="50" class="dh-tim"/><circle r="40" class="dh-tim-dam"/><polygon points="${SAO}" class="dh-vang"/>`;
+// Logo CLB Tin học, đúng 5 mảnh của bản chuẩn (diem10code-dohoa/public/js/hinh.mjs, MANH_LOGO): nền tròn chuyển màu,
+// vòng trắng, dải mực, sao vàng, chữ TIN HỌC. Khung 100x100 dời về tâm ở gốc tọa độ.
+// Mọi tranh có logo đều dùng chung mã chuyển màu dh-g-logo: các bản sao giống hệt nhau nên trùng id vẫn vẽ đúng.
+const saoDiem = (cx, cy, r, r2 = r * 0.45) => Array.from({ length: 10 }, (_, i) => {
+  const a = -Math.PI / 2 + (i * Math.PI) / 5, rr = i % 2 ? r2 : r;
+  return [+(cx + rr * Math.cos(a)).toFixed(1), +(cy + rr * Math.sin(a)).toFixed(1)];
+});
+const SAO_LOGO = saoDiem(50, 33, 19);
+const GR_LOGO = '<linearGradient id="dh-g-logo" x1="0" y1="0" x2="1" y2="1"><stop offset="0" class="dh-s-logo1"/><stop offset=".55" class="dh-s-logo2"/><stop offset="1" class="dh-s-logo3"/></linearGradient>';
+const logoVector = () => `<defs>${GR_LOGO}</defs><g transform="translate(-50 -50)"><circle cx="50" cy="50" r="48" fill="url(#dh-g-logo)"/>
+  <circle cx="50" cy="50" r="38" class="dh-logo-vong"/><rect x="4" y="54" width="92" height="24" rx="5" class="dh-muc"/>
+  <polygon points="${SAO_LOGO.join(' ')}" class="dh-vang"/><text x="50" y="71" text-anchor="middle" class="dh-logo-chu">TIN HỌC</text></g>`;
 
-// Cùng logo nhưng là ảnh điểm 10x10: phóng lên thấy từng ô vuông.
-function trongSao(x, y) {
-  const p = SAO.split(' ').map((c) => c.split(',').map(Number));
+// Cùng logo nhưng là ảnh điểm 10x10 (như băng rôn vỡ ô năm ngoái): phóng lên thấy từng ô vuông.
+// Màu từng ô lấy như logoKhoi() của bản chuẩn.
+function trongDaGiac(p, x, y) {
   let o = false;
   for (let i = 0, j = p.length - 1; i < p.length; j = i++) {
     if ((p[i][1] > y) !== (p[j][1] > y) && x < ((p[j][0] - p[i][0]) * (y - p[i][1])) / (p[j][1] - p[i][1]) + p[i][0]) o = !o;
   }
   return o;
 }
-function logoDiem() {
-  let s = '';
-  for (let y = -50; y < 50; y += 10) {
-    for (let x = -50; x < 50; x += 10) {
-      const cx = x + 5, cy = y + 5, r = Math.hypot(cx, cy);
-      if (r > 50) continue;
-      const lop = trongSao(cx, cy) ? 'dh-vang' : r > 40 ? 'dh-tim' : 'dh-tim-dam';
-      s += `<rect x="${x}" y="${y}" width="10.4" height="10.4" class="${lop}"/>`;
+function mauOLogo(u, v) {
+  const r = Math.hypot(u - 50, v - 50);
+  if (r > 48) return '';
+  if (v > 54 && v < 78 && u > 4 && u < 96) return v > 60 && v < 72 && u > 15 && u < 85 && Math.floor(u / 4) % 3 !== 2 ? 'dh-trang' : 'dh-muc';
+  if (trongDaGiac(SAO_LOGO, u, v)) return 'dh-vang';
+  if (Math.abs(r - 38) < 1.6) return 'dh-logo-vong-o';
+  const t = (u + v) / 200;
+  return t < 0.5 ? (t < 0.3 ? 'dh-tim' : 'dh-logo-12') : (t < 0.7 ? 'dh-logo-2' : (t < 0.85 ? 'dh-logo-23' : 'dh-logo-3'));
+}
+function logoDiem(n = 10) {
+  const o = 100 / n;
+  let s = '<g transform="translate(-50 -50)" shape-rendering="crispEdges">';
+  for (let j = 0; j < n; j++) {
+    for (let i = 0; i < n; i++) {
+      const lop = mauOLogo((i + 0.5) * o, (j + 0.5) * o);
+      if (lop) s += `<rect x="${i * o}" y="${j * o}" width="${o + 0.4}" height="${o + 0.4}" class="${lop}"/>`;
     }
   }
-  return s;
+  return s + '</g>';
 }
 
 // Poster có logo. co: đường kính, tiLe: cao chia rộng, khung: khung vàng nét đứt cần lấp.
@@ -40,14 +57,18 @@ function logo(d) {
     ${vung('x', vung('y', vung('co',vung('tiLe', vung('kieu', `<g transform="translate(${d.x} ${d.y}) scale(${k} ${k * d.tiLe})">${ve}</g>`)))))}`, 'Poster có logo');
 }
 
-// Hàng năm biểu tượng: xs, ys là tâm, cs là cỡ.
-const BIEU = [
-  (c) => `<circle r="${c / 2}" class="dh-hong"/>`,
-  (c) => `<rect x="${-c / 2}" y="${-c / 2}" width="${c}" height="${c}" rx="${c / 6}" class="dh-xanh"/>`,
-  (c) => `<polygon points="0,${-c / 2} ${c / 2},${c / 2} ${-c / 2},${c / 2}" class="dh-vang"/>`,
-  (c) => `<g transform="scale(${c / 70})"><polygon points="${SAO}" class="dh-tim"/></g>`,
-  (c) => `<rect x="${-c / 2}" y="${-c / 4}" width="${c}" height="${c / 2}" rx="${c / 4}" class="dh-la"/>`,
+// Năm biểu tượng phần thi của Ngày hội, đúng bản chuẩn (BIEU_TUONG trong diem10code-dohoa/public/js/hinh.mjs):
+// hình trắng đặc trên nền tròn, chi tiết khoét bằng màu nền. Thứ tự HD01 Lập trình nhanh, HD02 Thiết kế poster,
+// HD03 Đố vui an toàn mạng, HD04 Làm phim ngắn, HD05 Trưng bày robot. Khung 100x100.
+const BIEU_TUONG = [
+  '<circle cx="50" cy="50" r="46" class="dh-hd1"/><path d="M38 34L22 50l16 16M62 34l16 16-16 16" class="dh-net-trang" stroke-width="8"/>',
+  '<circle cx="50" cy="50" r="46" class="dh-hd2"/><rect x="30" y="24" width="40" height="52" rx="5" class="dh-trang"/><circle cx="50" cy="42" r="9" class="dh-hd2"/><path d="M38 64h24" class="dh-net-hd2" stroke-width="5"/>',
+  '<circle cx="50" cy="50" r="46" class="dh-hd3"/><path d="M26 20H74V50A30.75 30.75 0 0 1 50 80A30.75 30.75 0 0 1 26 50Z" class="dh-trang"/><path d="M39 50l8 8 15-16" class="dh-net-hd3" stroke-width="6"/>',
+  '<circle cx="50" cy="50" r="46" class="dh-hd4"/><rect x="22" y="32" width="56" height="36" rx="6" class="dh-trang"/><path d="M44 41v18l15-9z" class="dh-hd4"/>',
+  '<circle cx="50" cy="50" r="46" class="dh-hd5"/><path d="M50 30V21" class="dh-net-trang" stroke-width="5"/><circle cx="50" cy="17" r="6" class="dh-trang"/><rect x="17" y="44" width="9" height="20" rx="4.5" class="dh-trang"/><rect x="74" y="44" width="9" height="20" rx="4.5" class="dh-trang"/><rect x="22" y="28" width="56" height="46" rx="21" class="dh-trang"/><rect x="29" y="36" width="42" height="31" rx="14" class="dh-hd5"/><ellipse cx="41" cy="50" rx="4.5" ry="6" class="dh-trang"/><ellipse cx="59" cy="50" rx="4.5" ry="6" class="dh-trang"/><path d="M46 59q4 3.2 8 0" class="dh-net-trang" stroke-width="2.6"/>',
 ];
+// Hàng năm biểu tượng: xs, ys là tâm, cs là cỡ (đường kính nền tròn xấp xỉ cs).
+const BIEU = BIEU_TUONG.map((ve) => (c) => `<g transform="scale(${c / 92}) translate(-50 -50)">${ve}</g>`);
 function hangIcon(d) {
   const xs = so(d.xs), ys = so(d.ys), cs = so(d.cs);
   const hang = BIEU.map((b, i) => `<g transform="translate(${xs[i]} ${ys[i]})">${b(cs[i])}</g>`).join('');
@@ -158,8 +179,8 @@ function posterMau(d) {
   return svg(`<defs><linearGradient id="dh-g-tot" x1="0" y1="0" x2="1" y2="1"><stop offset="0" class="dh-s-poster"/><stop offset="1" class="dh-s-tim"/></linearGradient>
     <linearGradient id="dh-g-ban" x1="0" y1="0" x2="1" y2="1"><stop offset="0" class="dh-s-do"/><stop offset="1" class="dh-s-la"/></linearGradient></defs>
     ${vung('nen', `<rect width="300" height="180" fill="url(#dh-g-${d.nen})"/>`)}
-    ${vung('nenLogo', `${d.nenLogo === 'trang' ? '<rect x="14" y="12" width="40" height="40" class="dh-trang"/>' : ''}<g transform="translate(34 32) scale(.17)">${logoVector()}</g>`)}
-    <text x="62" y="37" class="dh-phu-de">CLB Tin học THPT Hoa Phượng</text>
+    ${vung('nenLogo', `${d.nenLogo === 'trang' ? '<rect x="14" y="12" width="40" height="40" class="dh-trang"/>' : ''}<g transform="translate(34 32) scale(.34)">${logoVector()}</g>`)}
+    <text x="62" y="37" class="dh-phu-de">CLB Tin học · THPT Hoa Phượng</text>
     ${vung('tieuDe', `<text x="24" y="88" class="dh-td-mau ${mauLop(d.tieuDe)}">NGÀY HỘI TIN HỌC</text>`)}
     <text x="24" y="106" class="dh-phu-de">Sáng thứ Bảy 27/3, sân trường</text>
     ${vung('nhan', nhan)}
@@ -195,18 +216,19 @@ function bangMau(d) {
   return svg(`<rect width="300" height="180" class="dh-giay"/><text x="20" y="30" class="dh-chu-muc">Bảng màu poster</text>${vung('mau', o)}`, 'Bảng màu');
 }
 
-// Biểu đồ tròn bốn phần kèm chú thích. mau: màu từng phần.
+// Biểu đồ tròn năm phần thi kèm chú thích, số bạn đã đăng ký đúng bản chuẩn (diem10code-sql, ngay-hoi.ts). mau: màu từng phần.
 function cung(cx, cy, r, a0, a1) {
   const p = (a) => `${(cx + r * Math.sin(a)).toFixed(1)} ${(cy - r * Math.cos(a)).toFixed(1)}`;
   return `M${cx} ${cy}L${p(a0)}A${r} ${r} 0 ${a1 - a0 > Math.PI ? 1 : 0} 1 ${p(a1)}Z`;
 }
 function bieuDoTron(d) {
-  const PHAN = [['Python', 40], ['Scratch', 25], ['Web', 20], ['Robot', 15]];
+  const PHAN = [['Lập trình nhanh', 37], ['Thiết kế poster', 28], ['An toàn mạng', 19], ['Làm phim ngắn', 20], ['Trưng bày robot', 11]];
+  const tong = PHAN.reduce((t, [, v]) => t + v, 0);
   const mau = d.mau.split(',');
   let a = 0;
-  const lat = PHAN.map(([, v], i) => { const a0 = a; a += (v / 100) * Math.PI * 2; return `<path d="${cung(84, 98, 62, a0, a)}" class="${mauLop(mau[i])}"/>`; }).join('');
-  const chu = PHAN.map(([t, v], i) => `<rect x="172" y="${52 + i * 26}" width="14" height="14" rx="3" class="${mauLop(mau[i])}"/><text x="194" y="${63 + i * 26}" class="dh-than">${t} ${v}%</text>`).join('');
-  return svg(`<rect width="300" height="180" class="dh-giay"/><text x="172" y="30" class="dh-chu-muc">Môn thi</text>${vung('mau', lat + chu)}`, 'Biểu đồ tròn');
+  const lat = PHAN.map(([, v], i) => { const a0 = a; a += (v / tong) * Math.PI * 2; return `<path d="${cung(76, 104, 60, a0, a)}" class="${mauLop(mau[i])}"/>`; }).join('');
+  const chu = PHAN.map(([t, v], i) => `<rect x="152" y="${44 + i * 25}" width="14" height="14" rx="3" class="${mauLop(mau[i])}"/><text x="172" y="${55 + i * 25}" class="dh-than">${t} ${v}</text>`).join('');
+  return svg(`<rect width="300" height="180" class="dh-giay"/><text x="16" y="26" class="dh-chu-muc">Số bạn đăng ký từng phần thi</text>${vung('mau', lat + chu)}`, 'Biểu đồ tròn');
 }
 
 export const KHUNG_DO_HOA = { logo, 'hang-icon': hangIcon, 'chu-anh': chuAnh, lop, 'the-thong-tin': theThongTin, 'chu-poster': chuPoster, 'bo-icon': boIcon, 'bieu-do': bieuDo, luoi,

@@ -51,7 +51,7 @@ export const GOI_MANG = [
       {
         id: 'tn-phi-giai', nhom: 'phi-nhan-thuong', muc: 'vua', khung: 'tin-nhan',
         hoi: 'Tin cô chủ nhiệm nào là thật?',
-        goc: { ten: 'Cô Hạnh GVCN', gio: '16:30', than: 'Lớp 11A2 đạt giải Nhì phần thi poster Ngày hội Tin học!', cuoi: 'Mai lớp trưởng lên phòng Đoàn nhận giấy khen và phần thưởng nhé.' },
+        goc: { ten: 'Cô Hạnh GVCN', gio: '16:30', than: 'Lớp 11A2 đạt giải Nhì phần thi Thiết kế poster ở Ngày hội Tin học!', cuoi: 'Mai lớp trưởng lên phòng Đoàn nhận giấy khen và phần thưởng nhé.' },
         va: { cuoi: 'Lớp trưởng chuyển trước 200.000đ phí nhận giải vào số tài khoản cô gửi sau nhé.' },
         vi: 'Giải thưởng thật không bắt nộp phí trước. Tài khoản của cô bị chiếm thì kẻ xấu vẫn xưng đúng tên cô.',
       },
