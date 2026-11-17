@@ -37,15 +37,19 @@ export function trangChu(root) {
         <button class="nut-icon" type="button" data-loa aria-label="${loaBat() ? 'Tắt' : 'Bật'} âm thanh">${icon(loaBat() ? 'loa' : 'tatLoa')}</button>
         <button class="nut-icon" type="button" data-gd aria-label="Đổi giao diện">${icon(giaoDien() === 'dark' ? 'mat' : 'trang')}</button>
       </header>
+      <div class="cot-trai">
       <div class="chu-xu"><span class="xu-dong"></span><span class="xu-so">${sau(tongXu)}</span><small>xu tốt nhất của mọi gói</small></div>
       <div class="loi-mo"><img class="mat mat--lon" src="${duongMat('luna', daChoi ? 'happy' : 'wave')}" alt="">
         <p class="bong-noi bong-noi--trai"><b>LUNA</b>${daChoi ? 'Mắt bạn đang tinh dần lên đấy. Làm tiếp nhé?' : 'Hai màn hình, chỉ khác một chỗ. Chọn đúng bản để ăn xu, rồi giữ nút So để thấy chỗ khác. Thấy rồi là không quên được đâu.'}</p></div>
       ${ke ? `<a class="nut-tiep-tuc" href="#/goi/${ke.id}"><span class="nut-tiep-tuc-so">${icon('chay')}</span><span><b>${daChoi ? 'Chơi tiếp' : 'Bắt đầu'}</b><small>Mùa ${ke.mua.so}, ${ke.ten}</small></span>${icon('tiep')}</a>` : ''}
       ${daChoi ? theOn() : ''}
+      </div>
+      <div class="cot-phai">
       ${MUA.map((m) => `<section class="mua">
         <div class="muc-ten">Mùa ${m.so}: ${m.ten}<span class="muc-ten-phu">${cauCuaMua(m).length} câu</span></div>
         <ul class="ds-goi">${ds.filter((g) => g.mua === m).map(theGoi).join('')}</ul>
       </section>`).join('')}
+      </div>
       <p class="chan-trang">Bản chơi thử. Thương hiệu trong câu đố đều là hư cấu.</p>
     </main>`;
     root.querySelector('[data-loa]').addEventListener('click', () => { datLoa(!loaBat()); ve(); });

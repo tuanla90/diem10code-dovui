@@ -2,7 +2,7 @@
 
 Game đố vui nhìn nhanh của chuỗi diem10code. Cùng thế giới với Mạch Đèn, Sổ Ngày Hội, Gương Mặt Ngày Hội, Trạm Web Ngày Hội, Mật Lệnh Robot: THPT Hoa Phượng, CLB Tin học, Ngày hội Tin học sáng 27/3/2027. Game này chính là gian **đố vui an toàn mạng** trong năm phần thi của Ngày hội.
 
-Tên trường, nhân vật, tên miền và logo chốt ở [../VU-TRU-DIEM10CODE.html](../VU-TRU-DIEM10CODE.html). Sửa ở đây mà vênh với bản đó thì theo bản đó.
+Logo trong câu đố là logo CLB Tin học 5 mảnh, hàng "Năm phần thi" là 5 biểu tượng gian chuẩn, cả hai chép từ `diem10code-dohoa/public/js/hinh.mjs` (MANH_LOGO, BIEU_TUONG). Tên trường, nhân vật, tên miền và logo chốt ở [../VU-TRU-DIEM10CODE.html](../VU-TRU-DIEM10CODE.html). Sửa ở đây mà vênh với bản đó thì theo bản đó.
 
 Đã có bản chơi thử: 3 mùa, 12 gói, 108 câu, thêm chế độ Ôn bẫy cho câu đã chọn nhầm. Xem mục Bản chơi thử ở cuối.
 
@@ -114,7 +114,7 @@ Khung màn hình là HTML/CSS thật (tin nhắn, thư, trình duyệt, hộp xi
 
 - Nền lavender, mực chàm, nút indigo, Google Sans Flex, Sola và Luna. Màu chỉ khai ở một tệp token.
 - Không emoji, không em dash trong chữ hiển thị, tệp dưới 1000 dòng, không tài nguyên ngoài.
-- Ưu tiên 375x812, dùng được ở 320x568, desktop là khung 430 px. Có giao diện tối, tôn trọng giảm chuyển động. Lật So là đổi bản tức thì, không có chuyển động.
+- Ưu tiên 375x812, dùng được ở 320x568. Từ 1024 px có bản web (`public/css/ban-web.css`, nạp cuối): trang chủ chia cột trái và lưới ba mùa, bàn chơi đặt A và B cạnh nhau, chọn xong khung So ở bên trái và lời giải bên phải. Màn hình trong câu đố giữ đúng bề rộng điện thoại 386 px rồi phóng bằng `zoom` (1,15 đến 1,7 theo cỡ màn) để chữ xuống dòng y như lúc ra đề. Có giao diện tối, tôn trọng giảm chuyển động. Lật So là đổi bản tức thì, không có chuyển động.
 - Trang tĩnh, không cần build, `server.mjs` và `railway.json` như các repo anh em.
 - Luật chơi không chạm DOM để `npm test` chạy trên Node. Máy kiểm canh: mỗi câu đúng một chỗ vá, có lý do, có mục Sổ tay, tên miền chỉ thuộc danh sách thương hiệu hư cấu.
 

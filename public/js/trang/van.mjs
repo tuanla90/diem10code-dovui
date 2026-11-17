@@ -87,9 +87,10 @@ export function trangVan(root, loai, id) {
     const khac = cac.find((x) => x !== b);
     khac.classList.add('the-chon--an');
     if (matchMedia('(prefers-reduced-motion: reduce)').matches) { xong(); return; }
-    const len = b.offsetTop - cac[0].offsetTop;
-    if (len) b.style.transform = `translateY(${-len}px)`;
-    setTimeout(xong, len ? 520 : 360);
+    // Điện thoại: hai thẻ xếp dọc nên trượt lên. Bản web: hai thẻ đứng cạnh nhau nên trượt sang trái.
+    const dx = b.offsetLeft - cac[0].offsetLeft, dy = b.offsetTop - cac[0].offsetTop;
+    if (dx || dy) b.style.transform = `translate(${-dx}px, ${-dy}px)`;
+    setTimeout(xong, dx || dy ? 520 : 360);
   };
 
   const chon = (b, c) => {
@@ -115,6 +116,7 @@ export function trangVan(root, loai, id) {
       ${khungSo(c, { dau, ket: dungKhong ? 'dung' : 'sai' })}
       <div class="lo-giai-sau trang-vao">
         <div class="hang-nut">${nutSo(dau)}<button class="nut-chinh nut-tiep" type="button" data-tiep><span>${cuoi ? 'Kết quả' : 'Câu tiếp'}</span>${icon('tiep')}</button></div>
+        <p class="goi-phim">Giữ Shift để so, Enter để đi tiếp</p>
         ${phanGiai(c, dungKhong, dungKhong ? `${chonMot(LOI_DUNG)} +${XU[c.muc]} xu` : chonMot(LOI_SAI))}
       </div>
     </div>`;
