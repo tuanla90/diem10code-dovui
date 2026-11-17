@@ -3,6 +3,7 @@
 
 export const TEN_MIEN = [
   'honglinhbank.vn', 'tomo.vn', 'edumo.vn', 'kienvang.vn', 'thpthoaphuong.edu.vn',
+  'ngayhoi.thpthoaphuong.edu.vn', 'lumo.vn',
   // Tên miền bẫy, cũng hư cấu.
   'honglinhbank-doithe.com', 'xac-minh.top', 'tomo-vn.com', 'to-mo.vn', 'edurno.vn', 'tomo-dangnhap.com', 'ngan.vn',
 ];
@@ -50,7 +51,7 @@ export const GOI_MANG = [
       {
         id: 'tn-phi-giai', nhom: 'phi-nhan-thuong', muc: 'vua', khung: 'tin-nhan',
         hoi: 'Tin cô chủ nhiệm nào là thật?',
-        goc: { ten: 'Cô Diệp GVCN', gio: '16:30', than: 'Lớp 11A2 đạt giải Nhì phần thi poster Ngày hội Tin học!', cuoi: 'Mai lớp trưởng lên phòng Đoàn nhận giấy khen và phần thưởng nhé.' },
+        goc: { ten: 'Cô Hạnh GVCN', gio: '16:30', than: 'Lớp 11A2 đạt giải Nhì phần thi poster Ngày hội Tin học!', cuoi: 'Mai lớp trưởng lên phòng Đoàn nhận giấy khen và phần thưởng nhé.' },
         va: { cuoi: 'Lớp trưởng chuyển trước 200.000đ phí nhận giải vào số tài khoản cô gửi sau nhé.' },
         vi: 'Giải thưởng thật không bắt nộp phí trước. Tài khoản của cô bị chiếm thì kẻ xấu vẫn xưng đúng tên cô.',
       },
@@ -64,7 +65,7 @@ export const GOI_MANG = [
       {
         id: 'tn-rut-gon', nhom: 'link-rut-gon', muc: 'kho', khung: 'tin-nhan',
         hoi: 'Bấm link trong tin nào thì biết trước mình sẽ đi đâu?',
-        goc: { ten: 'Lớp trưởng 11A2', gio: '18:02', than: 'Cả lớp bình chọn poster cho lớp mình nhé!', cuoi: 'thpthoaphuong.edu.vn/binh-chon' },
+        goc: { ten: 'Hà Vy lớp trưởng 11A2', gio: '18:02', than: 'Cả lớp bình chọn poster cho lớp mình nhé!', cuoi: 'thpthoaphuong.edu.vn/binh-chon' },
         va: { cuoi: 'ngan.vn/hp27x' },
         vi: 'Link rút gọn giấu mất tên miền thật, bấm vào mới biết đi đâu. Link thật của trường thì đọc được tên miền ngay.',
       },
@@ -153,7 +154,7 @@ export const GOI_MANG = [
       {
         id: 'tep-exe', nhom: 'duoi-tep', muc: 'vua', khung: 'tep',
         hoi: 'Tệp nào mở ra an toàn?',
-        goc: { nguoi: 'Thầy Vĩnh', gio: '19:20', loi: 'Đề cương ôn tập Tin học học kì 1 nhé các em.', ten: 'De-cuong-Tin-hoc-HK1.pdf', co: '412 KB' },
+        goc: { nguoi: 'Thầy Khải', gio: '19:20', loi: 'Đề cương ôn tập Tin học học kì 1 nhé các em.', ten: 'De-cuong-Tin-hoc-HK1.pdf', co: '412 KB' },
         va: { ten: 'De-cuong-Tin-hoc-HK1.pdf.exe' },
         vi: 'Nhìn đuôi cuối cùng của tên tệp. Tệp .pdf.exe là chương trình đội lốt tài liệu, còn mượn cả biểu tượng PDF, mở ra là chạy.',
       },

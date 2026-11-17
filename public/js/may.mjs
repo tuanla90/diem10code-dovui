@@ -89,7 +89,7 @@ function theHocSinh(che) {
     <rect x="1" y="1" width="298" height="148" rx="12" class="the-nen"/><rect x="1" y="1" width="298" height="34" rx="12" class="the-dai"/><rect x="1" y="22" width="298" height="13" class="the-dai"/>
     <text x="16" y="23" class="the-tieu">THẺ HỌC SINH</text><text x="284" y="23" text-anchor="end" class="the-tieu the-tieu--nho">THPT HOA PHƯỢNG</text>
     <rect x="16" y="46" width="70" height="88" rx="6" class="the-anh"/><circle cx="51" cy="78" r="15" class="the-mat"/><path d="M27 134a24 22 0 0148 0z" class="the-mat"/>
-    <text x="100" y="64" class="the-ten">Trần Bảo Khuê</text><text x="100" y="84" class="the-chu">Lớp 11A2</text>
+    <text x="100" y="64" class="the-ten">Trần Bảo Khuê</text><text x="100" y="84" class="the-chu">Lớp 11A1</text>
     <text x="100" y="106" class="the-chu">Mã HS</text>${so(150, 106, '0123 4567 89')}
     <text x="100" y="126" class="the-chu">Ngày sinh</text>${so(165, 126, '14/03/2009')}
   </svg>`;

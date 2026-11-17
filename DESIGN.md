@@ -1,6 +1,8 @@
 # Thiết kế Đố Vui Ngày Hội (tên tạm, chưa chốt)
 
-Game đố vui nhìn nhanh của chuỗi diem10code. Cùng thế giới với Mạch Đèn, Sổ Ngày Hội, Gương Mặt Ngày Hội, Trạm Web Ngày Hội: THPT Hoa Phượng, CLB Tin học, Ngày hội Tin học. Game này chính là gian **đố vui an toàn mạng** trong năm phần thi của Ngày hội.
+Game đố vui nhìn nhanh của chuỗi diem10code. Cùng thế giới với Mạch Đèn, Sổ Ngày Hội, Gương Mặt Ngày Hội, Trạm Web Ngày Hội, Mật Lệnh Robot: THPT Hoa Phượng, CLB Tin học, Ngày hội Tin học 26-27/3/2027. Game này chính là gian **đố vui an toàn mạng** trong năm phần thi của Ngày hội.
+
+Tên trường, nhân vật, tên miền và logo chốt ở [../VU-TRU-DIEM10CODE.html](../VU-TRU-DIEM10CODE.html). Sửa ở đây mà vênh với bản đó thì theo bản đó.
 
 Đã có bản chơi thử: 3 mùa, 12 gói, 108 câu, thêm chế độ Ôn bẫy cho câu đã chọn nhầm. Xem mục Bản chơi thử ở cuối.
 
@@ -82,7 +84,7 @@ Câu hỏi đổi chiều để không học vẹt: lúc hỏi "bản nào thậ
 
 ## Thương hiệu trong câu hỏi
 
-Dùng thương hiệu hư cấu của thế giới Hoa Phượng (Ngân hàng Hồng Lĩnh `honglinhbank.vn`, ví điện tử Tomo, nền tảng học Edumo, giao hàng Kiến Vàng Express, mạng xã hội Lumo), không dùng tên ngân hàng hay ứng dụng có thật. Thủ đoạn thì lấy đúng như ngoài đời. Như vậy không mượn nhận diện của ai, còn kỹ năng mang ra đời thật vẫn dùng được.
+Dùng thương hiệu hư cấu của thế giới Hoa Phượng (Ngân hàng Hồng Lĩnh `honglinhbank.vn`, ví điện tử Tomo, nền tảng học Edumo, giao hàng Kiến Vàng Express, mạng xã hội Lumo `lumo.vn`), không dùng tên ngân hàng hay ứng dụng có thật. Thủ đoạn thì lấy đúng như ngoài đời. Như vậy không mượn nhận diện của ai, còn kỹ năng mang ra đời thật vẫn dùng được.
 
 ## Kỹ thuật: bản giả là bản thật cộng một chỗ vá
 
