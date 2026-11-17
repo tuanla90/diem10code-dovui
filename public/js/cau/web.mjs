@@ -58,7 +58,7 @@ export const GOI_WEB = [
         id: 'w-le-tieu', nhom: 'gan-nhau', muc: 'kho', khung: 'css', ma: { chon: 'h3', thuoc: 'margin' },
         hoi: 'Bản nào nhìn ra ngay tiêu đề đi với đoạn nào?',
         goc: { loai: 'le-tieu', le: '14px 0 0' }, va: { le: '0 0 14px' },
-        vi: 'Tiêu đề Buổi chiều dính vào đoạn trên, cách xa đoạn của nó. Tiêu đề phải gần đoạn mình dẫn: lề trên lớn, lề dưới nhỏ.',
+        vi: 'Tiêu đề Ca 2 dính vào đoạn trên, cách xa đoạn của nó. Tiêu đề phải gần đoạn mình dẫn: lề trên lớn, lề dưới nhỏ.',
       },
     ],
   },
@@ -99,7 +99,7 @@ export const GOI_WEB = [
       },
       {
         id: 'w-z', nhom: 'z-index', muc: 'kho', khung: 'css', ma: { chon: '.menu', thuoc: 'z-index' },
-        hoi: 'Bấm mở danh sách phòng, bản nào hiện đủ lựa chọn?',
+        hoi: 'Bấm mở danh sách phần thi, bản nào hiện đủ lựa chọn?',
         goc: { loai: 'chong', z: '2' }, va: { z: '0' },
         vi: 'Thẻ Lưu ý có z-index 1 nên nằm đè lên menu z-index 0, lựa chọn bị che mất. Menu thả xuống phải có z-index cao hơn mọi thứ bên dưới.',
       },
@@ -144,7 +144,7 @@ export const GOI_WEB = [
       },
       {
         id: 'w-alt', nhom: 'alt', muc: 'vua', khung: 'css',
-        ma: { html: { co: '<img src="so-do.png" alt="Sơ đồ: Phòng máy 1 ở tầng 2, cạnh thư viện">', khong: '<img src="so-do.png">' } },
+        ma: { html: { co: '<img src="so-do.png" alt="Sơ đồ: Phòng 1 ở tầng 2 nhà A, cạnh thư viện">', khong: '<img src="so-do.png">' } },
         hoi: 'Ảnh tải lỗi: bản nào vẫn cho biết ảnh nói gì?',
         goc: { loai: 'anh-loi', alt: 'co' }, va: { alt: 'khong' },
         vi: 'Ảnh lỗi hoặc người dùng trình đọc màn hình chỉ còn chữ trong alt. Thiếu alt là thiếu luôn thông tin của ảnh.',

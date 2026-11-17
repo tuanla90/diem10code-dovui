@@ -52,7 +52,7 @@ export const GOI_DO_HOA = [
       },
       {
         id: 'dh-gan-nhau', nhom: 'gan-nhau', muc: 'kho', khung: 'the-thong-tin',
-        hoi: 'Thẻ nào nhìn ra ngay giờ nào đi với hoạt động nào?',
+        hoi: 'Thẻ nào nhìn ra ngay giờ nào đi với phần thi nào?',
         goc: { ...THE }, va: { cach: '14,6' },
         vi: 'Nhãn cách giá trị của nó xa hơn cách mục kế tiếp, nên mắt ghép nhầm cặp. Món đi với nhau phải đứng gần nhau hơn.',
       },

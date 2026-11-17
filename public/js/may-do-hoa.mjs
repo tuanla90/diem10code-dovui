@@ -61,7 +61,7 @@ function chuAnh(d) {
     <ellipse cx="80" cy="44" rx="40" ry="13" class="dh-may"/><ellipse cx="190" cy="92" rx="52" ry="14" class="dh-may"/>
     <path d="M0 150q70-46 140-10t160-12v52H0z" class="dh-doi"/>`;
   const dai = d.dai === 'co' ? '<rect x="0" y="104" width="300" height="50" class="dh-dai"/>' : '';
-  const chu = `<text x="${d.le}" y="128" class="dh-tieu-de">NGÀY HỘI TIN HỌC</text><text x="${d.le}" y="146" class="dh-phu-de">Thứ Bảy, 30/11, sân trường</text>`;
+  const chu = `<text x="${d.le}" y="128" class="dh-tieu-de">NGÀY HỘI TIN HỌC</text><text x="${d.le}" y="146" class="dh-phu-de">Sáng thứ Bảy 27/3, sân trường</text>`;
   return svg(`${anh}${vung('dai', dai)}${vung('le', chu)}`, 'Poster chữ trên ảnh');
 }
 
@@ -70,7 +70,7 @@ function lop(d) {
   const LOP = {
     nen: '<rect width="300" height="180" class="dh-poster"/><circle cx="250" cy="150" r="60" class="dh-tim-dam"/>',
     hinh: '<rect x="0" y="66" width="300" height="46" class="dh-bang"/>',
-    chu: '<text x="150" y="98" text-anchor="middle" class="dh-tieu-de dh-tieu-de--to">TRIỂN LÃM ROBOT</text><text x="150" y="140" text-anchor="middle" class="dh-phu-de">Phòng Tin học 2, cả ngày</text>',
+    chu: '<text x="150" y="98" text-anchor="middle" class="dh-tieu-de dh-tieu-de--to">TRƯNG BÀY ROBOT</text><text x="150" y="140" text-anchor="middle" class="dh-phu-de">Phòng 2, từ 10:00</text>',
   };
   return svg(vung('thuTu', d.thuTu.split(' ').map((k) => LOP[k]).join('')), 'Poster nhiều lớp');
 }
@@ -79,7 +79,7 @@ function lop(d) {
 function theThongTin(d) {
   const [trong, giua] = so(d.cach);
   const xs = so(d.xs);
-  const CAP = [['Thi lập trình nhanh', 'Phòng máy 1, 7 giờ 30'], ['Thiết kế poster', 'Thư viện, 9 giờ'], ['Trưng bày robot', 'Sân trường, 14 giờ']];
+  const CAP = [['Lập trình nhanh', 'Phòng 1, 8:00 đến 10:00'], ['Thiết kế poster', 'Phòng 2, 8:00'], ['Trưng bày robot', 'Phòng 2, 10:00']];
   let y = 56;
   const cap = CAP.map(([nhan, gt], i) => {
     const s = `<text x="${xs[i]}" y="${y}" class="dh-nhan">${nhan.toUpperCase()}</text><text x="${xs[i]}" y="${y + trong + 14}" class="dh-gia-tri">${gt}</text>`;
@@ -95,9 +95,9 @@ function theThongTin(d) {
 function chuPoster(d) {
   const lan = d.can === 'lan';
   const p = d.phong === 'nhieu' ? ['dh-p-chan', 'dh-p-ma', 'dh-p-tay'] : ['', '', ''];
-  const tieuDe = `<g transform="translate(${lan ? 150 : 24} 44) scale(${d.gian} 1)"><text text-anchor="${lan ? 'middle' : 'start'}" class="dh-tieu-de-toi ${p[0]}" style="font-size:${d.coTieuDe}px">HỘI CHỢ SÁCH</text></g>`;
-  const phu = vung('mauPhu', `<text x="${lan ? 276 : 24}" y="68" text-anchor="${lan ? 'end' : 'start'}" class="${d.mauPhu === 'nhat' ? 'dh-phu-nhat' : 'dh-phu-toi'} ${p[1]}">Thư viện trường, 8 giờ sáng Chủ nhật</text>`);
-  const than = ['Đổi sách cũ lấy sách mới.', 'Mỗi bạn mang tối đa ba cuốn.', 'Có quà cho lớp góp nhiều sách.']
+  const tieuDe = `<g transform="translate(${lan ? 150 : 24} 44) scale(${d.gian} 1)"><text text-anchor="${lan ? 'middle' : 'start'}" class="dh-tieu-de-toi ${p[0]}" style="font-size:${d.coTieuDe}px">LÀM PHIM NGẮN</text></g>`;
+  const phu = vung('mauPhu', `<text x="${lan ? 276 : 24}" y="68" text-anchor="${lan ? 'end' : 'start'}" class="${d.mauPhu === 'nhat' ? 'dh-phu-nhat' : 'dh-phu-toi'} ${p[1]}">Phòng 1, 10:00 sáng thứ Bảy 27/3</text>`);
+  const than = ['Quay bằng điện thoại là đủ.', 'Mỗi phim dài tối đa ba phút.', 'Có quà cho phim được bình chọn.']
     .map((t, i) => `<text x="24" y="${100 + i * d.dong}" class="dh-than ${p[2]}">${d.hoaThan === 'co' ? t.toUpperCase() : t}</text>`).join('');
   return svg(`<rect width="300" height="180" class="dh-giay"/><rect x="0" y="168" width="300" height="12" class="dh-vang"/>
     ${vung('phong', `${vung('can', `${vung('coTieuDe', vung('gian', tieuDe))}${phu}`)}${vung('hoaThan', vung('dong', than))}`)}`, 'Poster chữ');
@@ -148,10 +148,10 @@ function luoi(d) {
 // ---------- Gói Màu sắc ----------
 const mauLop = (ten) => `dh-${ten}`;
 
-// Poster hội trại. nen: tot (tím chuyển tím) hay ban (đỏ chuyển xanh lá), tieuDe, nut: màu,
+// Poster Ngày hội. nen: tot (tím chuyển tím) hay ban (đỏ chuyển xanh lá), tieuDe, nut: màu,
 // nhan: màu ba nhãn, nenLogo: trong (ảnh nền trong suốt) hay trang (ảnh còn nền trắng).
 function posterMau(d) {
-  const NHAN = ['Robot', 'Trò chơi', 'Thiết kế'];
+  const NHAN = ['Robot', 'Đố vui', 'Poster'];
   const mauNhan = d.nhan.split(',');
   const nhan = NHAN.map((t, i) => `<rect x="${24 + i * 70}" y="116" width="62" height="20" rx="10" class="${mauLop(mauNhan[i])}"/>
     <text x="${55 + i * 70}" y="130" text-anchor="middle" class="dh-nhan-pill">${t}</text>`).join('');
@@ -159,11 +159,11 @@ function posterMau(d) {
     <linearGradient id="dh-g-ban" x1="0" y1="0" x2="1" y2="1"><stop offset="0" class="dh-s-do"/><stop offset="1" class="dh-s-la"/></linearGradient></defs>
     ${vung('nen', `<rect width="300" height="180" fill="url(#dh-g-${d.nen})"/>`)}
     ${vung('nenLogo', `${d.nenLogo === 'trang' ? '<rect x="14" y="12" width="40" height="40" class="dh-trang"/>' : ''}<g transform="translate(34 32) scale(.17)">${logoVector()}</g>`)}
-    <text x="62" y="37" class="dh-phu-de">CLB Tin học Hoa Phượng</text>
-    ${vung('tieuDe', `<text x="24" y="88" class="dh-td-mau ${mauLop(d.tieuDe)}">HỘI TRẠI TIN HỌC</text>`)}
-    <text x="24" y="106" class="dh-phu-de">Thứ Bảy này, sân trường</text>
+    <text x="62" y="37" class="dh-phu-de">CLB Tin học THPT Hoa Phượng</text>
+    ${vung('tieuDe', `<text x="24" y="88" class="dh-td-mau ${mauLop(d.tieuDe)}">NGÀY HỘI TIN HỌC</text>`)}
+    <text x="24" y="106" class="dh-phu-de">Sáng thứ Bảy 27/3, sân trường</text>
     ${vung('nhan', nhan)}
-    ${vung('nut', `<rect x="180" y="146" width="100" height="24" rx="12" class="${mauLop(d.nut)}"/><text x="230" y="162" text-anchor="middle" class="dh-chu-nut ${d.nut === 'vang' ? 'dh-chu-toi' : 'dh-trang'}">Đăng ký</text>`)}`, 'Poster hội trại');
+    ${vung('nut', `<rect x="180" y="146" width="100" height="24" rx="12" class="${mauLop(d.nut)}"/><text x="230" y="162" text-anchor="middle" class="dh-chu-nut ${d.nut === 'vang' ? 'dh-chu-toi' : 'dh-trang'}">Đăng ký</text>`)}`, 'Poster Ngày hội');
 }
 
 // Bộ nhận diện: ô màu chuẩn bên trái, ba món dùng màu đó bên phải. mau: màu của chiếc áo.

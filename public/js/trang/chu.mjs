@@ -32,7 +32,7 @@ export function trangChu(root) {
   const ve = () => {
     root.innerHTML = `<main class="trang chu trang-vao">
       <header class="dau">
-        <div class="dau-ten"><b>Đố Vui Ngày Hội</b><small>Gian đố vui, CLB Tin học Hoa Phượng</small></div>
+        <div class="dau-ten"><b>Đố Vui Ngày Hội</b><small>CLB Tin học THPT Hoa Phượng</small></div>
         <button class="nut-icon" type="button" data-loa aria-label="${loaBat() ? 'Tắt' : 'Bật'} âm thanh">${icon(loaBat() ? 'loa' : 'tatLoa')}</button>
         <button class="nut-icon" type="button" data-gd aria-label="Đổi giao diện">${icon(giaoDien() === 'dark' ? 'mat' : 'trang')}</button>
       </header>
