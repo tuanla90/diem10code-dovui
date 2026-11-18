@@ -37,8 +37,8 @@ export const GOI_MANG = [
       {
         id: 'tn-vay-tien', nhom: 'vay-tien', muc: 'de', khung: 'tin-nhan',
         hoi: 'Tin nào trả lời ngay được, không cần kiểm tra?',
-        goc: { ten: 'Thục Đoan 11A2', gio: '20:15', than: 'Cậu ơi, mai nhớ mang hộ tớ quyển Tin học 11 nhé.', cuoi: 'Cảm ơn cậu nhiều!' },
-        va: { than: 'Cậu ơi, chuyển giúp tớ 2 triệu vào số tài khoản này, tối tớ trả, đang gấp lắm.' },
+        goc: { ten: 'Hà Vy 11A2', gio: '20:15', than: 'Cậu ơi, mai nhớ mang hộ tớ quyển Tin học 11 nhé.', cuoi: 'Cảm ơn cậu nhiều!' },
+        va: { than: 'Cậu ơi, chuyển giúp tớ 200 nghìn vào số tài khoản này, tối tớ trả, đang gấp lắm.' },
         vi: 'Bạn bè nhắn vay tiền gấp là kịch bản quen của tài khoản bị chiếm. Gọi điện hoặc hỏi tận mặt trước khi chuyển.',
       },
       {
@@ -72,7 +72,7 @@ export const GOI_MANG = [
       {
         id: 'tn-xin-ma', nhom: 'otp', muc: 'kho', khung: 'tin-nhan',
         hoi: 'Tin nhắn bạn bè nào trả lời ngay được?',
-        goc: { ten: 'Thục Đoan 11A2', gio: '20:15', than: 'Cậu ơi, mai nhớ mang hộ tớ quyển Tin học 11 nhé.', cuoi: 'Cảm ơn cậu nhiều!' },
+        goc: { ten: 'Hà Vy 11A2', gio: '20:15', than: 'Cậu ơi, mai nhớ mang hộ tớ quyển Tin học 11 nhé.', cuoi: 'Cảm ơn cậu nhiều!' },
         va: { than: 'Tớ lỡ để mã xác minh Lumo gửi nhầm vào số cậu, cậu đọc lại 6 số giúp tớ với.' },
         vi: 'Không có chuyện gửi nhầm. Kẻ chiếm tài khoản của bạn ấy đang đăng nhập Lumo bằng số của bạn, mã đó là chìa khóa tài khoản của chính bạn.',
       },
@@ -196,7 +196,7 @@ export const GOI_MANG = [
       {
         id: 'tep-scr', nhom: 'duoi-tep', muc: 'kho', khung: 'tep',
         hoi: 'Tệp ảnh nào mở ra an toàn?',
-        goc: { nguoi: 'Thục Đoan 11A2', gio: '21:47', loi: 'Ảnh kỷ yếu lớp mình nè, đẹp lắm!', ten: 'Anh-ky-yeu-11A2.jpg', co: '2,4 MB' },
+        goc: { nguoi: 'Hà Vy 11A2', gio: '21:47', loi: 'Ảnh kỷ yếu lớp mình nè, đẹp lắm!', ten: 'Anh-ky-yeu-11A2.jpg', co: '2,4 MB' },
         va: { ten: 'Anh-ky-yeu-11A2.scr' },
         vi: 'Tệp .scr là chương trình bảo vệ màn hình, chạy được như .exe. Ảnh thật có đuôi .jpg, .png. Tài khoản bạn bè bị chiếm cũng gửi được tệp này.',
       },
